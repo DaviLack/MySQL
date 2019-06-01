@@ -1,0 +1,73 @@
+ 
+  Avaliação de procedure
+
+  criar um banco de dados - COMERCIO
+
+  criar uma tabela Vendedor
+
+  campos - codvendedor      - int chave primaria
+           nomevendedor     - varchar(50)
+           produtovendido   -varchar(50)
+           cidade           - char(40)
+           estado           - char(2) 
+           email            - varchar(50)
+           valorvendido     - decimal(10,2)
+           valorcomissao    - decimal(10,2)
+              
+     criar uma tabela Produtos
+
+  campos - codproduto     - int chave primaria
+           nomeproduto    - varchar(50)
+           precounitario  - decimal(10,2)
+           quant          - int
+           precototal     - decimal (10,2)
+
+
+Insertar 5 registros para cada tabela.
+obs.: Não insertar registros nos campos valor da comissão
+ e precototal.
+
+criar no mysql as procedures para o problemas abaixo:
+
+1-Calcular a valor da comissão do vendedor 10% sobre o valor vendido. 
+- usar o comando update
+
+2-Aumentar 10% no valor unitario na tabela produtos.
+ - usar o comando update. 
+
+3-Calcular o precototal de cada produto. 
+- usar os campos quant * precounitario.
+
+4-Os vendedores 7 e 8 foram demitidos.
+usar comando delete
+ 
+ 
+um exemplo de procedure com calculo sem parametro
+
+delimiter $$
+
+create procedure sp_conta()
+
+begin
+ 
+   update tbl_clientes set total=(precounit*quant);
+
+  end $$
+
+delimiter ;
+
+um exemplo de procedure com parametro
+delimiter $$
+
+CREATE PROCEDURE listar_nome(IN id INT)
+
+begin
+   
+ SELECT *  FROM tbl_clientes where codigo=id;
+
+end $$
+
+delimiter ;
+
+
+
